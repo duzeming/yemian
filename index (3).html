@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>固定</title>
+</head>
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    main{
+        width: 1500px;
+        height: 4000px;
+        border: 2px solid #000;
+        margin:0 auto;
+    }
+    .tx{
+        width: 0;
+        height: 100px;
+        border-radius: 50%;
+        background-color: tan;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        line-height: 100px;
+        color: #FFF;
+        transition:all 2s;
+        font-weight: 400;
+    }
+    a{
+        text-decoration: none;
+    }
+    .box{
+        width: 100px;
+        height: 50px;
+        background-color: tan;
+        border-radius: 20px;
+        font-size: 24px;
+        text-align: center;
+    }
+</style>
+    <a href="index.html">
+        <div class="box">下一页</div>
+    </a>
+    <main></main>
+    <div class="tx">Top</div>
+</body>
+</html>
+<script>
+    var tx = document.querySelector('.tx');
+//    类名必须加点     调用body文档信息
+    console.log(tx);
+    window.onscroll=function () {
+//        滚动条事件
+        var bosnod = document.documentElement.scrollTop || document.body.scrollTop;
+        if(bosnod >200){
+//            如果滚动条的y轴大于200
+            tx.style.opacity=1;
+//            出现是1
+            tx.style.width="100px";
+//            类名的宽
+        }else {
+//            否则
+            tx.style.opacity=0;
+//                消失是0
+           tx.style.width="0";
+        }
+    }
+//    var t = setInterval(function () {
+////        时间函数用法
+//        window.scrollBy(0,-10);
+////        滚动条  正下负上
+//        if(window.scrollY==0){
+////            如果滚动条Y轴等于0
+//            clearInterval(t);
+////            时间函数停止
+//        }
+//    },20)
+    tx.onclick=function () {
+//        触发事件
+        var t = setInterval(function () {
+//        时间函数用法
+            window.scrollBy(0,-10);
+//        滚动条  正下负上
+            if(window.scrollY==0){
+//            如果滚动条Y轴等于0
+                clearInterval(t);
+//            时间函数停止
+            }
+        },20)
+    }
+
+</script>

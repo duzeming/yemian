@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面</title>
+</head>
+
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border:0;
+    }
+    p{
+        text-align:center;
+    }
+    ul{
+        float: left;
+
+
+        
+    }
+    a{
+        text-decoration:none;
+    }
+    .box{
+        width: 100%;
+        height: 100vh;
+        background:rgba(0,0,0,.7);
+        position: relative;
+        top:0;
+        left: 0;
+
+    }
+    main{
+        width: 500px;
+        height: 300px;
+        background:#FFF;
+        border-radius:20px;
+        position: absolute;
+        top:100px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin:0 auto;
+        margin-top: 200px;
+    }
+    h5{
+        width: 100%;
+        height: 50px;
+        font-size: 24px;
+        text-align: center;
+        line-height: 50px;
+        margin-top: 10px;
+        color: #000;
+    }
+    label{
+         display: block;
+         margin-left: 150px;
+     }
+    input{
+        display: block;
+        height: 30px;
+        width: 200px;
+        margin-left: 150px;
+        border:1px solid #CCC;
+    }
+
+    section{
+        margin-top: 10px;
+    }
+    .submit{
+        width: 150px;
+        margin-top: 20px;
+        border-radius: 10px;
+        margin-left: 175px;
+        background: #1235;
+    }
+    .bos{
+        width: 100px;
+        height: 50px;
+        background-color: tan;
+        border-radius: 20px;
+        font-size: 24px;
+        text-align: center;
+    }
+</style>
+    <div class="box">
+        <a href="cuowu.html">
+            <div class="bos">下一页</div>
+        </a>
+        <main>
+
+            <h5>欢迎登陆</h5>
+            <section>
+                <label for="username">用户名</label>
+                <input type="text" name="username" class="username" id="username" autofocus="true">
+            </section>
+            <section>
+                <label for="password">密码</label>
+                <input type="password" name="password" class="password" id="password">
+            </section>
+            <input type="submit" value="登陆"  onclick="tiao()" class="submit" >
+        </main>
+    </div>
+</body>
+</html>
+<script>
+    var username=document.querySelector('.username');
+//    返回文档中匹配指定的CSS选择器的第一元素
+    var password=document.querySelector('.password');
+    var submit=document.querySelector('.submit');
+//    console.log(username);
+//    console.log(password);
+    console.log(submit);
+    submit.onclick=function(){
+//        onclick当按钮被点击时执行Javascript代码 点击或触发的事件
+        if(username.value.trim() ==  'admin' &&  password.value.trim() == '123456789'){
+//            trim()去空函数               框里面的名
+//            它里面有空 去空  与 密码里面有空 去空的
+            alert('登陆成功');
+        }else{
+//            否则
+            location.replace('cuowu.html');
+//            location.assign:重新打开一个页面，并且形成历史记录。
+        }
+    };
+
+
+</script>
